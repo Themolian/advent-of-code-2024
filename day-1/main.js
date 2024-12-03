@@ -21,6 +21,19 @@ fetch("./input.txt")
       lineTwo.push(line[1]);
     });
     lines = [lineOne, lineTwo];
+    // Part 2
+    let lineNumsToAdd = [];
+    lineOne.forEach((num) => {
+      let numTimes = 0;
+      lineTwo.forEach((subNum) => {
+        if (num == subNum) {
+          numTimes++;
+        }
+      });
+      let lineNum = num * numTimes;
+      lineNumsToAdd.push(lineNum);
+    });
+    console.log("Part two answer: " + lineNumsToAdd.reduce((a, b) => a + b, 0));
     let smallestNums = [];
     let lineOneLength = lineOne.length - 1;
     for (let i = 0; i <= lineOneLength; i++) {
